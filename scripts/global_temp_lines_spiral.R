@@ -79,7 +79,7 @@ t_data %>%
     axis.ticks = element_blank(),
     axis.title = element_text(color = "white", size = 13),
     plot.title = element_text(color = "white", hjust = 0.5, size = 15)
-  )+
+  )
   
 
 ggsave("figures/temperatures_lines_spiral.png", width = 8, height = 4.5)
