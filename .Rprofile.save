@@ -1,0 +1,3 @@
+source("renv/activate.R")
+.libPaths(c(.libPaths()[2], .libPaths()[1]))
+
