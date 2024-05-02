@@ -15,6 +15,8 @@ tmax_prcp %>%
   facet_wrap(~name, ncol = 1, scales = "free_y")+
   geom_smooth(se = FALSE)
 
+ggsave("figures/climate_correlation.png", width = 6, height = 4)
+
 scaled_tmax_prcp <- tmax_prcp %>% 
   mutate(tmax_tr = (tmax - min(tmax))/ (max(tmax) - min(tmax)),
          tmax_min = min(tmax),
@@ -40,10 +42,14 @@ tmax_plot +
                                         breaks = (seq(300,1800,300)-420)/1298,
                                         name = "Total Precipitation (mm)")
                      )+
+  theme_bw()+
   theme(
     axis.title.y.left = element_text(color = "blue"),
-    axis.title.y.right = element_text(color = "red")
+    axis.title.y.right = element_text(color = "red"),
+    panel.grid = element_blank()
   )
+
+ggsave("figures/climate_correlation_merged.png", width = 6, height = 4)
 
 tmax_prcp %>% 
   ggplot(aes(x = tmax, y = prcp))+
@@ -67,6 +73,8 @@ tmax_prcp %>%
     plot.title = element_text(size = 12, face  = "bold"),
     plot.subtitle = element_text(size = 10)
   )
+
+ggsave("figures/climate_correlation_test.png", width = 6, height = 4)
 
 cor.test(tmax_prcp$tmax, tmax_prcp$prcp)
 

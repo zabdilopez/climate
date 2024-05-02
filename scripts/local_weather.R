@@ -57,12 +57,12 @@ local_weather <- read_csv(station_daily,
 #precipitation
 
 local_weather %>%
-  ggplot(aes(x=prcp))+
+  ggplot(aes(x=PRCP))+
   geom_histogram()+
   scale_y_continuous(limits = c(0,50))
 
 local_weather %>%
-  ggplot(aes(x=date, y=prcp))+
+  ggplot(aes(x=date, y=PRCP))+
   geom_line()
   
   

@@ -82,7 +82,7 @@ a <- t_data %>%
   transition_manual(frames = year, cumulative = TRUE)
 
 animate(a, width=4.155, height=4.5, unit="in", res=300,)
-anim_save("figures/climate_spiral.gif")
+anim_save("figures/climate_spiral_2.gif")
 
 
 animate(a, width=4.155, height=4.5, unit="in", res=300,

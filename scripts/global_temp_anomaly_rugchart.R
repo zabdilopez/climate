@@ -17,7 +17,7 @@ current_year <- zone_data %>%
 zone_data%>%
   ggplot(aes(x=t_diff, xend= t_diff,
              y=zone_position - 0.25, yend = zone_position + 0.25)) +
-  geom_segment(color = "white", alpha = 0.25) +
+  geom_segment(color = "black", alpha = 0.25) +
   geom_segment(data = current_year,
                aes(color = t_diff), size = 2, lineend = "round")+
   scale_y_continuous(breaks = 1:8,
@@ -32,17 +32,17 @@ zone_data%>%
        title = "Variation in annual temperature anomaly by latitude (1880-2022)",
        subtitle = "Bars for 2022 are colored by the size of anomaly")+
   theme(
-    plot.background = element_rect(fill = "black", color = "black"),
-    panel.background = element_rect(fill = "black"),
-    plot.title = element_text(color = "white", face = "bold"),
+    plot.background = element_rect(fill = "white", color = "white"),
+    panel.background = element_rect(fill = "white"),
+    plot.title = element_text(color = "black", face = "bold"),
     plot.subtitle = element_text(color = "gray", size = 8),
     plot.title.position = "plot",
-    axis.text = element_text(color = "white"),
-    axis.title = element_text(color = "white"),
+    axis.text = element_text(color = "black"),
+    axis.title = element_text(color = "black"),
     panel.grid.major.x = element_line(color = "gray", size =0.25),
     panel.grid.minor.x = element_blank(),
     panel.grid.major.y = element_blank(),
-    panel.grid.minor.y = element_line(color = "white"),
+    panel.grid.minor.y = element_line(color = "black"),
     axis.ticks = element_blank()
   )
 

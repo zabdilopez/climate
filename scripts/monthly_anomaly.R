@@ -16,7 +16,7 @@ t_data <- read_csv("data/GLB.Ts+dSST.csv", skip = 1, na = "***")%>%
   group_by(year)%>%
   mutate(ave = mean(month_anom)) %>%
   ungroup()%>%
-  mutate(ave = if_else(year ==2022, max(abs(ave)), ave))
+  mutate(ave = if_else(year ==2023, max(abs(ave)), ave))
 
 annotation <- t_data %>%
   slice_tail(n = 1)
@@ -45,8 +45,8 @@ p <- t_data %>%
   )
 
 p+ geom_point(data = annotation, aes(x=month, y=month_anom), size = 5)+
-  geom_text(data = annotation, aes(x = 2.8, y=-0.5), 
-            label = "March 2022", hjust = 1)
+  geom_text(data = annotation, aes(x = 10, y=2.3), 
+            label = "August 2023", hjust = 1)
 ggsave("figures/monthly_anomaly.png", width = 6, height = 4, units = "in")
 
 a <- p +

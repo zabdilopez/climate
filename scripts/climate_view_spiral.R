@@ -4,6 +4,8 @@ library(plotly)
 library(glue)
 library(htmlwidgets)
 library(git2r)
+library(rgl)
+
 
 
 
@@ -27,13 +29,13 @@ t_data <- read_csv("data/GLB.Ts+dSST.csv", skip = 1, na="***")%>%
 
 axx <- list(
   title = "",
-  showgrid = FALSE,
+  showgrid = TRUE,
   zeroline = F
 )
 
 axy <- list(
   title = "",
-  showgrid = FALSE,
+  showgrid = TRUE,
   zeroline = F
 )
 
@@ -60,6 +62,8 @@ fig <- plot_ly(t_data,
                       yaxis =axy,
                       zaxis = axy))
 
+fig <- fig %>%
+  layout(scene = list(xaxis = axx, yaxis = axy, zaxis = axy, title = "Climate change anomalies"))
 
 fig
 
